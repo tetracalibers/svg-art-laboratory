@@ -1,5 +1,8 @@
 import { defineConfig } from 'astro/config'
 
+// integrations
+import svelte from '@astrojs/svelte'
+
 // for path aliases
 import { resolve } from 'node:path'
 const __dirname = new URL('.', import.meta.url).pathname
@@ -14,4 +17,5 @@ export default defineConfig({
       },
     },
   },
+  integrations: [svelte()],
 })
