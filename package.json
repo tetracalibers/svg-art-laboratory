@@ -15,5 +15,10 @@
     "astro": "^4.5.10",
     "svelte": "^4.2.12",
     "typescript": "^5.4.3"
+  },
+  "overrides": {
+    "vite": {
+      "rollup": "npm:@rollup/wasm-node"
+    }
   }
 }
