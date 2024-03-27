@@ -1,0 +1,23 @@
+:root {
+  --ja-font: 'Zen Kaku Gothic New';
+  --en-font: 'Ysabeau Infant';
+
+  --bg-color: '#f9f9f9';
+  --tx-color: '#525e75';
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--en-font), var(--ja-font);
+  background: var(--bg-color);
+  color: var(--tx-color);
+  margin: auto;
+  max-width: 60rem;
+}
+
+img {
+  max-width: 100%;
+}
