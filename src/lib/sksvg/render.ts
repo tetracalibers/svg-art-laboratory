@@ -23,12 +23,15 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
 
   set(attributes: Record<string, string | number>) {
     for (let key in attributes) {
+      // JavaScriptで属性を設定するときにハイフンを使うことはできない
+      // そのため、stroke_widthのような属性名をstroke-widthに変換する
       const prop = key.replace(/_/g, '-')
       this.element.setAttributeNS(null, prop, attributes[key].toString())
     }
     return this
   }
 
+  // create an element and automatically append it to our parent SVG
   create(elementName: SVGTagName) {
     this.child = new SkSVG(elementName)
 
