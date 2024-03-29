@@ -1,6 +1,6 @@
 <script lang="ts">
   import { SkSVG } from '@/lib/sksvg/render'
-  import { pickRandom } from '@/lib/sksvg/utils'
+  import { pickRandom } from '@/lib/sksvg/generative'
   import { onMount } from 'svelte'
 
   let container: HTMLElement
