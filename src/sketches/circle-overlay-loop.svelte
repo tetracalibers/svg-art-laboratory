@@ -15,15 +15,6 @@
       winInnerWidth < winInnerHeight ? winInnerWidth : winInnerHeight
     svg.set({ width: svgSize, height: svgSize, viewBox: '0 0 1000 1000' })
 
-    // Background
-    svg.create('rect').set({
-      x: 0,
-      y: 0,
-      width: 1000,
-      height: 1000,
-      fill: '#181818',
-    })
-
     // Circle overlay loop.
     for (let i = 1; i <= 6; i += 1) {
       // Vary the radius, and the two vertical centre points.

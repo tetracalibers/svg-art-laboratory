@@ -8,8 +8,6 @@
   let winInnerWidth: number
   let winInnerHeight: number
 
-  const bgColor = '#181818'
-
   const randomised = {
     hue: random(0, 360),
     rotation: random(-180, 180),
@@ -24,9 +22,6 @@
     const svg = new SkSVG()
     svg.addTo(container)
     svg.set({ viewBox: '0 0 1000 1000', width: svgSize, height: svgSize })
-
-    const bgLayer = svg.create('rect')
-    bgLayer.set({ x: 0, y: 0, width: 1000, height: 1000, fill: bgColor })
 
     for (let i = 0; i < randomised.iterations; i += 1) {
       // Set the centre point, the x and y radii of our ellipse and its rotation.
