@@ -63,6 +63,45 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return pattern
   }
 
+  // Get a given element's centre { x, y } co-ordinates.
+  getCentre() {
+    if (!('getBBox' in this.element)) {
+      throw new Error(
+        'This function can only be called on elements that have a bounding box.'
+      )
+    }
+    const bbox = this.element.getBBox()
+    const cx = bbox.x + bbox.width / 2
+    const cy = bbox.y + bbox.height / 2
+    return { x: cx, y: cy }
+  }
+
+  // Move an element to a desired position with respect to its centre.
+  moveTo(x: number, y: number) {
+    let c = this.getCentre()
+    let t = this.#createTransform()
+
+    t.setTranslate(x - c.x, y - c.y)
+
+    this.#addTransform(t)
+
+    return this
+  }
+
+  // Appends an SVG transform object to a transform list.
+  #addTransform(transform: SVGTransform) {
+    if (!('transform' in this.element)) {
+      throw new Error('This element does not support the transform attribute.')
+    }
+    this.element.transform.baseVal.appendItem(transform)
+  }
+
+  // Alows for the creation of a cumulative transform.
+  #createTransform() {
+    const root = new SkSVG()
+    return root.element.createSVGTransform()
+  }
+
   #isMainSVG() {
     if (this.element.nodeName !== 'svg') {
       throw new Error(
