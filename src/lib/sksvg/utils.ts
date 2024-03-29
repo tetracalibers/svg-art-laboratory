@@ -9,3 +9,7 @@ export function random(min = 0, max = 1, float = false): number {
     return float || max - min <= 1 ? random : Math.round(random)
   }
 }
+
+export const pickRandom = <Item>(items: Item[]): Item => {
+  return items[Math.round(Math.random() * (items.length - 1))]
+}
