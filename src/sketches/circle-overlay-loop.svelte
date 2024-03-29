@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { SkSVG } from '@/lib/sksvg/render'
+  import { SkSVG } from '@/lib/sksvg'
   import { onMount } from 'svelte'
 
   let container: HTMLElement

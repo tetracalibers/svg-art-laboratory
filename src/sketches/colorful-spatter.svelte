@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { SkSVG } from '@/lib/sksvg/render'
+  import { SkSVG } from '@/lib/sksvg'
   import { random } from '@/lib/sksvg/generative'
   import { onMount } from 'svelte'
 
