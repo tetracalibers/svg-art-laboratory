@@ -96,6 +96,12 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return this.element.getAttributeNS(null, attribute)
   }
 
+  // Inserts content within an element. Useful for textual elements.
+  content(text: string) {
+    this.element.innerHTML = text
+    return this
+  }
+
   // Get a given element's centre { x, y } co-ordinates.
   getCentre() {
     if (!('getBBox' in this.element)) {
