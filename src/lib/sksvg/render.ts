@@ -63,6 +63,11 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return pattern
   }
 
+  // Get a given attribute's value.
+  get(attribute: string) {
+    return this.element.getAttributeNS(null, attribute)
+  }
+
   // Get a given element's centre { x, y } co-ordinates.
   getCentre() {
     if (!('getBBox' in this.element)) {
