@@ -10,8 +10,7 @@
 
   onMount(() => {
     // Viewport size (1:1 aspect ratio).
-    const svgSize =
-      winInnerWidth < winInnerHeight ? winInnerWidth : winInnerHeight
+    const svgSize = Math.min(winInnerWidth, winInnerHeight)
 
     const svg = new SkSVG()
     svg.addTo(container)

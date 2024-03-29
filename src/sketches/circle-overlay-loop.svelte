@@ -11,8 +11,7 @@
     const svg = new SkSVG().addTo(container)
 
     // Viewport size (1:1 aspect ratio).
-    const svgSize =
-      winInnerWidth < winInnerHeight ? winInnerWidth : winInnerHeight
+    const svgSize = Math.min(winInnerWidth, winInnerHeight)
     svg.set({ width: svgSize, height: svgSize, viewBox: '0 0 1000 1000' })
 
     // Circle overlay loop.
