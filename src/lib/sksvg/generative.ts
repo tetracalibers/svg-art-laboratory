@@ -8,9 +8,34 @@ export const pickRandom = <Item>(items: Item[]): Item => {
   return items[Math.round(Math.random() * (items.length - 1))]
 }
 
+// Constrains (or clamps) a value between a minimum and maximum value.
+export const constrain = (num: number, min: number, max: number) => {
+  return Math.min(Math.max(num, min), max)
+}
+
 // n2が未指定の場合 => n1%の確率でtrueを返す
 // n2を指定した場合 => n1 : n2 の確率でtrueを返す
 export const chance = (n1 = 50, n2?: number) => {
   const n = n2 !== undefined ? (n2 / (n1 + n2)) * 100 : n1
   return n > Math.random() * 100
+}
+
+// ガウス分布
+// - ほとんどの値が集積する中点を平均と呼び、この平均からどの程度ずれるかをシグマ（標準偏差）と呼ぶ
+// - ガウス分布の値は有界ではないので、時折極端な異常値が発生する可能性がある（この場合、constrain関数で制限するとよい）
+//
+// デフォルトではこの関数は約-3から+3の間の値を返し、平均は0、標準偏差は1となる
+// すなわち、
+// - 値の68%は-1と1(標準偏差)の間にある
+// - 値の95%は-2と2の間にある
+// - 値の99%は-3と3の間にある
+//
+// 第3引数は、浮動小数点数（より正確だが桁数が多い）と整数（整数）のどちらを返すかを決める
+// 整数を扱うと、生成されるマークアップがおよそ2分の1になる
+export const gaussian = (mean = 0, sigma = 1, float = false) => {
+  const u = 1 - Math.random()
+  const v = Math.random()
+  const z = Math.cos(Math.PI * v) * Math.sqrt(-Math.log(u))
+  const g = z * sigma + mean
+  return float ? g : Math.round(g)
 }
