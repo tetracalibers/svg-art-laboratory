@@ -2,12 +2,14 @@
 import Root from '../layouts/Root.astro'
 import FirstSketch from '@/sketches/first-sketch.svelte'
 import CircleOverlayLoop from '@/sketches/circle-overlay-loop.svelte'
+import OpticalIllusion from '@/sketches/optical-illusion.svelte'
 ---
 
 <Root title='first sketch'>
   <div class='centering'>
     <FirstSketch client:load />
     <CircleOverlayLoop client:load />
+    <OpticalIllusion client:load />
   </div>
 </Root>
 
