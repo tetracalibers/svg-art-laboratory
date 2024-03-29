@@ -127,6 +127,18 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return this
   }
 
+  // Rotate an element around a specified origin point (the element centre by default).
+  rotate(angle: number, cx?: number, cy?: number) {
+    const c = this.getCentre()
+    const t = this.#createTransform()
+
+    t.setRotate(angle, cx ?? c.x, cy ?? c.y)
+
+    this.#addTransform(t)
+
+    return this
+  }
+
   // Appends an SVG transform object to a transform list.
   #addTransform(transform: SVGTransform) {
     if (!('transform' in this.element)) {
