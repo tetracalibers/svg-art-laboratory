@@ -39,3 +39,17 @@ export const gaussian = (mean = 0, sigma = 1, float = false) => {
   const g = z * sigma + mean
   return float ? g : Math.round(g)
 }
+
+// パレート分布（パレートの原理、80対20の法則）
+// - 社会の人口のわずか20％がその富の80％を支配している
+//
+// これはジェネレーティブアートにおいて、大きさの異なる要素のバランスを取るのに役立つ
+// - 例：ポルト・パレートと呼ばれる擬似的な都市景観の作成で、街の建物の大きさを変化させるのに使う
+//
+// 第1引数：範囲の最小の数を定義する
+export const pareto = (min: number, float = false) => {
+  const n = 1.0 - Math.random()
+  const a = Math.log(5) / Math.log(4)
+  const p = min / Math.pow(n, 1.0 / a)
+  return float ? p : Math.round(p)
+}
