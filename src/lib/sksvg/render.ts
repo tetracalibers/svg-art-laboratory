@@ -44,6 +44,33 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return this.child
   }
 
+  createPattern(id: string, width: number, height: number) {
+    this.#isMainSVG()
+
+    const pattern = new SkSVG('pattern')
+    pattern.set({
+      id: id,
+      x: 0,
+      y: 0,
+      width: width,
+      height: height,
+      patternUnits: 'userSpaceOnUse',
+    })
+
+    const defs = this.#defsCheck()
+    defs.appendChild(pattern.element)
+
+    return pattern
+  }
+
+  #isMainSVG() {
+    if (this.element.nodeName !== 'svg') {
+      throw new Error(
+        'This function can only be called on the main SVG element.'
+      )
+    }
+  }
+
   // Checks if the def element already exists, and creates it if it doesn't.
   #defsCheck() {
     let defs = document.querySelector('defs')
