@@ -13,6 +13,19 @@ export const constrain = (num: number, min: number, max: number) => {
   return Math.min(Math.max(num, min), max)
 }
 
+// Re-maps a number from one range to another.
+export const map = (
+  value: number,
+  start1: number,
+  stop1: number,
+  start2: number,
+  stop2: number,
+  float = false
+) => {
+  let n = ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2
+  return float ? n : Math.round(n)
+}
+
 // n2が未指定の場合 => n1%の確率でtrueを返す
 // n2を指定した場合 => n1 : n2 の確率でtrueを返す
 export const chance = (n1 = 50, n2?: number) => {
