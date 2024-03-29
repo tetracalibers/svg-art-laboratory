@@ -63,6 +63,34 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return pattern
   }
 
+  createGradient(
+    id: string,
+    type: 'linear' | 'radial',
+    colours: string[],
+    rotation = 45
+  ) {
+    this.#isMainSVG()
+
+    const gradient = new SkSVG(`${type}Gradient`)
+    gradient.set({ id: id })
+
+    if (type === 'linear') {
+      gradient.set({ gradientTransform: `rotate(${rotation})` })
+    }
+
+    for (let i = 0; i < colours.length; i += 1) {
+      gradient.create('stop').set({
+        stop_color: colours[i],
+        offset: (i * (100 / (colours.length - 1))) / 100,
+      })
+    }
+
+    const defs = this.#defsCheck()
+    defs.appendChild(gradient.element)
+
+    return gradient
+  }
+
   // Get a given attribute's value.
   get(attribute: string) {
     return this.element.getAttributeNS(null, attribute)
