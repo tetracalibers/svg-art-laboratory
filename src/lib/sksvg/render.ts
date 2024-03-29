@@ -6,7 +6,7 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
   element: SVGElementTagNameMap[T]
   child?: SkSVG<SVGTagName>
 
-  constructor(elementName: T | 'svg' = 'svg', namespace = NAMESPACE) {
+  constructor(elementName: string = 'svg', namespace = NAMESPACE) {
     this.element = <SVGElementTagNameMap[T]>(
       document.createElementNS(namespace, elementName)
     )
@@ -21,7 +21,7 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return this
   }
 
-  set(attributes: Record<string, string | number>) {
+  set(attributes: { [name: string]: any }) {
     for (let key in attributes) {
       // JavaScriptで属性を設定するときにハイフンを使うことはできない
       // そのため、stroke_widthのような属性名をstroke-widthに変換する
@@ -32,7 +32,7 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
   }
 
   // create an element and automatically append it to our parent SVG
-  create(elementName: SVGTagName) {
+  create(elementName: string) {
     this.child = new SkSVG(elementName)
 
     if (elementName === 'defs') {
