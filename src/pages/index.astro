@@ -1,8 +1,20 @@
 ---
 import Root from '../layouts/Root.astro'
 import FirstSketch from '@/sketches/first-sketch.svelte'
+import CircleOverlayLoop from '@/sketches/circle-overlay-loop.svelte'
 ---
 
 <Root title='first sketch'>
-  <FirstSketch client:load />
+  <div class='centering'>
+    <FirstSketch client:load />
+    <CircleOverlayLoop client:load />
+  </div>
 </Root>
+
+<style>
+  .centering {
+    margin-block: 0;
+    margin-inline: auto;
+    width: fit-content;
+  }
+</style>

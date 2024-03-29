@@ -59,4 +59,10 @@
   bind:innerHeight="{winInnerHeight}"
 />
 
-<div bind:this="{container}"></div>
+<div bind:this="{container}" class="sketch-container"></div>
+
+<style>
+  .sketch-container {
+    display: flex;
+  }
+</style>
