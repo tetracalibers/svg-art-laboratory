@@ -82,5 +82,9 @@
   {
     "id": "colour-filter",
     "title": "Colour Filter"
+  },
+  {
+    "id": "hubble-bubble",
+    "title": "Hubble Bubble"
   }
 ]
