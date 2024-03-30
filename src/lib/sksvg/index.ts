@@ -164,6 +164,16 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return unobserve
   }
 
+  // Animate an element using the Web Animations API.
+  animate(
+    keyframes: Keyframe[] | PropertyIndexedKeyframes,
+    options: KeyframeAnimationOptions
+  ) {
+    this.element.animate(keyframes, options)
+
+    return this
+  }
+
   // Move an element to a desired position with respect to its centre.
   moveTo(x: number, y: number) {
     let c = this.getCentre()
