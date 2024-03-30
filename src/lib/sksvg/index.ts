@@ -32,8 +32,9 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
   }
 
   // create an element and automatically append it to our parent SVG
-  create(elementName: string) {
-    this.child = new SkSVG(elementName)
+  create<Name extends SVGTagName>(elementName: Name): SkSVG<Name> {
+    const newElement = new SkSVG<Name>(elementName)
+    this.child = newElement
 
     if (elementName === 'defs') {
       this.child.element = this.#defsCheck()
@@ -41,7 +42,7 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
       this.element.appendChild(this.child.element)
     }
 
-    return this.child
+    return newElement
   }
 
   createPattern(id: string, width: number, height: number) {
