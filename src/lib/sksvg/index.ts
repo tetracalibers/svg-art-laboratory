@@ -5,6 +5,8 @@ type SVGTagName = keyof SVGElementTagNameMap
 export class SkSVG<T extends SVGTagName = 'svg'> {
   element: SVGElementTagNameMap[T]
   child?: SkSVG<SVGTagName>
+  cursorX?: number
+  cursorY?: number
 
   constructor(elementName: string = 'svg', namespace = NAMESPACE) {
     this.element = <SVGElementTagNameMap[T]>(
@@ -114,6 +116,52 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     const cx = bbox.x + bbox.width / 2
     const cy = bbox.y + bbox.height / 2
     return { x: cx, y: cy }
+  }
+
+  trackCursor(callback?: (event: Event) => void) {
+    this.#isMainSVG()
+
+    let point = new DOMPoint()
+
+    const onPointerMove = (_event: Event) => {
+      const event = <PointerEvent>_event
+
+      if (!('getScreenCTM' in this.element)) {
+        throw new Error(
+          'This function can only be called on elements that are part of the DOM.'
+        )
+      }
+
+      this.element.style.touchAction = 'none'
+
+      point.x = event.clientX
+      point.y = event.clientY
+
+      const matrix = this.element.getScreenCTM()
+      if (!matrix) return
+
+      point = point.matrixTransform(matrix.inverse())
+      this.cursorX = Math.ceil(point.x)
+      this.cursorY = Math.ceil(point.y)
+
+      if (callback) {
+        callback(event)
+      }
+    }
+
+    const onPointerLeave = () => {
+      this.element.style.touchAction = 'auto'
+    }
+
+    this.element.addEventListener('pointermove', onPointerMove)
+    this.element.addEventListener('pointerleave', onPointerLeave)
+
+    const unobserve = () => {
+      this.element.removeEventListener('pointermove', onPointerMove)
+      this.element.removeEventListener('pointerleave', onPointerLeave)
+    }
+
+    return unobserve
   }
 
   // Move an element to a desired position with respect to its centre.
