@@ -1,0 +1,66 @@
+[
+  {
+    "id": "first-sketch",
+    "title": "First Sketch"
+  },
+  {
+    "id": "circle-overlay-loop",
+    "title": "Circle Overlay Loop"
+  },
+  {
+    "id": "optical-illusion",
+    "title": "Optical Illusion"
+  },
+  {
+    "id": "colorful-spatter",
+    "title": "Colorful Spatter"
+  },
+  {
+    "id": "elements-everywhere",
+    "title": "Elements Everywhere"
+  },
+  {
+    "id": "normal-grids",
+    "title": "Normal Grids"
+  },
+  {
+    "id": "colourful-grids",
+    "title": "Colourful Grids"
+  },
+  {
+    "id": "chance",
+    "title": "Chance"
+  },
+  {
+    "id": "gaussian-dist",
+    "title": "Gaussian Dist"
+  },
+  {
+    "id": "porto-pareto",
+    "title": "Porto Pareto"
+  },
+  {
+    "id": "porto-pareto-circle",
+    "title": "Porto Pareto Circle"
+  },
+  {
+    "id": "noise-matrix",
+    "title": "Noise Matrix"
+  },
+  {
+    "id": "spinning-noise",
+    "title": "Spinning Noise"
+  },
+  {
+    "id": "quadratic-slinky",
+    "title": "Quadratic Slinky"
+  },
+  {
+    "id": "generative-arcs",
+    "title": "Generative Arcs"
+  },
+  {
+    "id": "organic-curves",
+    "title": "Organic Curves"
+  }
+]

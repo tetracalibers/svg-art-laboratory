@@ -1,0 +1,54 @@
+---
+import Root from '@/layouts/Root.astro'
+import navList from '@/sketches/list.json'
+
+interface Props {
+  id: string
+}
+
+const { id } = Astro.props
+
+const currentIdx = navList.findIndex((item) => item.id === id)
+
+const prev = navList[currentIdx - 1] || navList[navList.length - 1]
+const next = navList[currentIdx + 1] || navList[0]
+
+const title = navList[currentIdx].title
+---
+
+<Root title={title}>
+  <div class='nav-origin'>
+    <div class='centering'>
+      <slot />
+    </div>
+    <a href={`/${prev.id}`} class='nav --prev'>← {prev.title}</a>
+    <a href={`/${next.id}`} class='nav --next'>{next.title} →</a>
+  </div>
+</Root>
+
+<style>
+  .centering {
+    margin: auto;
+    width: fit-content;
+  }
+
+  .nav-origin {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .nav {
+    position: absolute;
+    bottom: 1rem;
+    color: var(--tx-color);
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  .nav.--prev {
+    left: 0.5rem;
+  }
+  .nav.--next {
+    right: 0.5rem;
+  }
+</style>
