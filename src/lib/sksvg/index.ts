@@ -94,6 +94,27 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return gradient
   }
 
+  // Creates a filter and appends it to the defs element.
+  createFilter(id: string) {
+    this.#isMainSVG()
+
+    const filter = new SkSVG('filter')
+    filter.set({
+      id: id,
+      x: '-25%',
+      y: '-25%',
+      width: '150%',
+      height: '150%',
+      filterUnits: 'userSpaceOnUse',
+      color_interpolation_filters: 'sRGB',
+    })
+
+    const defs = this.#defsCheck()
+    defs.appendChild(filter.element)
+
+    return filter
+  }
+
   // Get a given attribute's value.
   get(attribute: string) {
     return this.element.getAttributeNS(null, attribute)
