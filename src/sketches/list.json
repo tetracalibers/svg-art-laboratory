@@ -70,5 +70,9 @@
   {
     "id": "making-things-move",
     "title": "Making Things Move"
+  },
+  {
+    "id": "collision-detection",
+    "title": "Collision Detection"
   }
 ]
