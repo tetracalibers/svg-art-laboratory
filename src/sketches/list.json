@@ -78,5 +78,9 @@
   {
     "id": "circular-loop",
     "title": "Circular Loop"
+  },
+  {
+    "id": "colour-filter",
+    "title": "Colour Filter"
   }
 ]
