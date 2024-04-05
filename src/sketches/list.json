@@ -98,5 +98,9 @@
   {
     "id": "div-rect",
     "title": "Div Rect"
+  },
+  {
+    "id": "div-square",
+    "title": "Div Square"
   }
 ]
