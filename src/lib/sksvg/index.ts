@@ -1,6 +1,6 @@
 const NAMESPACE = 'http://www.w3.org/2000/svg'
 
-type SVGTagName = keyof SVGElementTagNameMap
+export type SVGTagName = keyof SVGElementTagNameMap
 
 export class SkSVG<T extends SVGTagName = 'svg'> {
   element: SVGElementTagNameMap[T]
