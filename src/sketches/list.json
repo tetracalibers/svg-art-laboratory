@@ -130,5 +130,9 @@
   {
     "id": "fibo-rect",
     "title": "Fibo Rect"
+  },
+  {
+    "id": "fibo-recur-div",
+    "title": "Fibo Recur Div"
   }
 ]
