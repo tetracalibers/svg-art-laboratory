@@ -23,6 +23,13 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return this
   }
 
+  clear() {
+    while (this.element.firstChild) {
+      this.element.removeChild(this.element.firstChild)
+    }
+    return this
+  }
+
   set(attributes: { [name: string]: any }) {
     for (let key in attributes) {
       // JavaScriptで属性を設定するときにハイフンを使うことはできない
