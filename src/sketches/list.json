@@ -118,5 +118,9 @@
   {
     "id": "mondrian",
     "title": "Mondrian"
+  },
+  {
+    "id": "fibo-square",
+    "title": "Fibo Square"
   }
 ]
