@@ -122,5 +122,9 @@
   {
     "id": "fibo-square",
     "title": "Fibo Square"
+  },
+  {
+    "id": "fibo-square-spiral",
+    "title": "Fibo Square Spiral"
   }
 ]
