@@ -192,6 +192,20 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return unobserve
   }
 
+  addEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | AddEventListenerOptions
+  ) {
+    this.element.addEventListener(type, listener, options)
+
+    const dispose = () => {
+      this.element.removeEventListener(type, listener, options)
+    }
+
+    return dispose
+  }
+
   // Animate an element using the Web Animations API.
   animate(
     keyframes: Keyframe[] | PropertyIndexedKeyframes,
