@@ -30,14 +30,6 @@
     // 許容誤差（epsilon）
     const e = 0.1
 
-    svg.create('rect').set({
-      x: 0,
-      y: 0,
-      width: vbs,
-      height: vbs,
-      fill: 'white',
-    })
-
     const divGroup = svg.create('g')
 
     // viewboxの横幅を初期値とする
@@ -62,9 +54,10 @@
           divGroup.create('rect').set({
             x: x,
             y: y,
-            width: w * r - 1,
-            height: w - 1,
+            width: w * r,
+            height: w,
             fill: `hsl(${Gen.random(0, 360)} 80% 80%)`,
+            stroke: 'white',
           })
           x += w * r
         }
@@ -78,9 +71,10 @@
           divGroup.create('rect').set({
             x: x,
             y: y,
-            width: w - 1,
-            height: w / r - 1,
+            width: w,
+            height: w / r,
             fill: `hsl(${Gen.random(0, 360)} 80% 80%)`,
+            stroke: 'white',
           })
           y += w / r
         }

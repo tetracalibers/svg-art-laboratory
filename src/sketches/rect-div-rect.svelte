@@ -26,6 +26,7 @@
       width: width,
       height: height,
       fill: fill || `hsl(${Gen.random(0, 360)} 80% 80%)`,
+      stroke: 'white',
     })
   }
 

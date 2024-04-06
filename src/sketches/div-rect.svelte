@@ -30,15 +30,6 @@
 
     const divGroup = svg.create('g')
 
-    // まず分割対象となる長方形を描画
-    divGroup.create('rect').set({
-      x: 0,
-      y: 0,
-      width: a,
-      height: b,
-      fill: '#fff',
-    })
-
     // 分割に使う正方形の幅の大きさ
     let w = Math.min(a, b)
 
@@ -60,9 +51,10 @@
           divGroup.create('rect').set({
             x: x,
             y: y,
-            width: w - 1,
-            height: w - 1,
+            width: w,
+            height: w,
             fill: `hsl(${Gen.random(0, 360)} 80% 80%)`,
+            stroke: 'white',
           })
           x += w
         }
@@ -76,9 +68,10 @@
           divGroup.create('rect').set({
             x: x,
             y: y,
-            width: w - 1,
-            height: w - 1,
+            width: w,
+            height: w,
             fill: `hsl(${Gen.random(0, 360)} 80% 80%)`,
+            stroke: 'white',
           })
           y += w
         }
