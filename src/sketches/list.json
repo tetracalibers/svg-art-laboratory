@@ -114,5 +114,9 @@
   {
     "id": "div-rect-zoom",
     "title": "Div Rect Zoom"
+  },
+  {
+    "id": "mondrian",
+    "title": "Mondrian"
   }
 ]
