@@ -110,5 +110,9 @@
   {
     "id": "recur-div-square",
     "title": "Recur Div Square"
+  },
+  {
+    "id": "div-rect-zoom",
+    "title": "Div Rect Zoom"
   }
 ]
