@@ -106,5 +106,9 @@
   {
     "id": "rect-div-rect",
     "title": "Rect Div Rect"
+  },
+  {
+    "id": "recur-div-square",
+    "title": "Recur Div Square"
   }
 ]
