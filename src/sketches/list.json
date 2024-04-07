@@ -134,5 +134,9 @@
   {
     "id": "fibo-recur-div",
     "title": "Fibo Recur Div"
+  },
+  {
+    "id": "fibo-spiral",
+    "title": "Fibo Spiral"
   }
 ]
