@@ -122,6 +122,45 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return filter
   }
 
+  // Creates a smooth, open bezier curve from an array of points.
+  // - curveFactor: 0 means that points connected by straight lines. Default is 1.
+  createCurve(points: number[], curveFactor = 1) {
+    const path = new SkSVG('path')
+
+    let pathData = `M ${[points[0], points[1]]}`
+
+    for (let i = 0; i < points.length - 2; i += 2) {
+      const x0 = i ? points[i - 2] : points[0]
+      const y0 = i ? points[i - 1] : points[1]
+
+      const x1 = points[i]
+      const y1 = points[i + 1]
+
+      const x2 = points[i + 2]
+      const y2 = points[i + 3]
+
+      const x3 = i !== points.length - 4 ? points[i + 4] : x2
+      const y3 = i !== points.length - 4 ? points[i + 5] : y2
+
+      const cp1x = x1 + ((x2 - x0) / 6) * curveFactor
+      const cp1y = y1 + ((y2 - y0) / 6) * curveFactor
+
+      const cp2x = x2 - ((x3 - x1) / 6) * curveFactor
+      const cp2y = y2 - ((y3 - y1) / 6) * curveFactor
+
+      pathData += `C ${[cp1x, cp1y, cp2x, cp2y, x2, y2]}`
+    }
+
+    path.set({
+      d: pathData,
+      fill: 'none',
+    })
+
+    this.element.appendChild(path.element)
+
+    return path
+  }
+
   // Get a given attribute's value.
   get(attribute: string) {
     return this.element.getAttributeNS(null, attribute)
