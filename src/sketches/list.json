@@ -138,5 +138,9 @@
   {
     "id": "fibo-spiral",
     "title": "Fibo Spiral"
+  },
+  {
+    "id": "archimedes-spiral",
+    "title": "Archimedes Spiral"
   }
 ]
