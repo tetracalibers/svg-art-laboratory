@@ -146,5 +146,9 @@
   {
     "id": "fermat-spiral",
     "title": "Fermat Spiral"
+  },
+  {
+    "id": "log-spiral",
+    "title": "Log Spiral"
   }
 ]
