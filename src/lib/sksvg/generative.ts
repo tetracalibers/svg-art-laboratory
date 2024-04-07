@@ -66,3 +66,20 @@ export const pareto = (min: number, float = false) => {
   const p = min / Math.pow(n, 1.0 / a)
   return float ? p : Math.round(p)
 }
+
+// 極座標系から直交座標系への変換
+export const polarToCartesian = (
+  x: number,
+  y: number,
+  radius: number,
+  radian: number
+) => {
+  return {
+    x: x + radius * Math.cos(radian),
+    y: y + radius * Math.sin(radian),
+  }
+}
+
+export const radianToDegree = (radian: number) => {
+  return (radian * 180) / Math.PI
+}
