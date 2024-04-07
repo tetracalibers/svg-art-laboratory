@@ -142,5 +142,9 @@
   {
     "id": "archimedes-spiral",
     "title": "Archimedes Spiral"
+  },
+  {
+    "id": "fermat-spiral",
+    "title": "Fermat Spiral"
   }
 ]
