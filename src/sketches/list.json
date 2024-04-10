@@ -158,5 +158,9 @@
   {
     "id": "vec-recur-square",
     "title": "Vec Recur Square"
+  },
+  {
+    "id": "vec-recur-square-spiral",
+    "title": "Vec Recur Square Spiral"
   }
 ]
