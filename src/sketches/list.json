@@ -150,5 +150,9 @@
   {
     "id": "log-spiral",
     "title": "Log Spiral"
+  },
+  {
+    "id": "log-spiral-zoom",
+    "title": "Log Spiral Zoom"
   }
 ]
