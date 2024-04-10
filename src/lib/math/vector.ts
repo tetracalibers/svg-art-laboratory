@@ -8,6 +8,13 @@ export class Vector2 {
   }
 
   /**
+   * ベクトルの長さ
+   */
+  get mag(): number {
+    return Math.sqrt(this.x * this.x + this.y * this.y)
+  }
+
+  /**
    * 他のベクトルを加算する
    */
   public add(other: Vector2): Vector2 {
