@@ -62,4 +62,13 @@ export class Vector2 {
   public scale(scalar: number): Vector2 {
     return new Vector2(this.x * scalar, this.y * scalar)
   }
+
+  /**
+   * ベクトルの回転
+   */
+  public rotate(angle: number): Vector2 {
+    const cos = Math.cos(angle)
+    const sin = Math.sin(angle)
+    return new Vector2(this.x * cos - this.y * sin, this.x * sin + this.y * cos)
+  }
 }
