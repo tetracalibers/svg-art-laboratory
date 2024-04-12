@@ -148,6 +148,10 @@
     "title": "Fermat Spiral"
   },
   {
+    "id": "discrete-fermat-spiral",
+    "title": "Discrete Fermat Spiral"
+  },
+  {
     "id": "log-spiral",
     "title": "Log Spiral"
   },
