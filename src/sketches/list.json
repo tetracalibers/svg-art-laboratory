@@ -162,5 +162,9 @@
   {
     "id": "vec-recur-square-spiral",
     "title": "Vec Recur Square Spiral"
+  },
+  {
+    "id": "vec-recur-polygon",
+    "title": "Vec Recur Polygon"
   }
 ]
