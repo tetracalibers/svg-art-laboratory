@@ -71,4 +71,11 @@ export class Vector2 {
     const sin = Math.sin(angle)
     return new Vector2(this.x * cos - this.y * sin, this.x * sin + this.y * cos)
   }
+
+  /**
+   * 指定した向きで大きさが1のベクトルを生成する
+   */
+  static fromAngle(angle: number): Vector2 {
+    return new Vector2(Math.cos(angle), Math.sin(angle))
+  }
 }
