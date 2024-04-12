@@ -54,6 +54,20 @@ export class SkSVG<T extends SVGTagName = 'svg'> {
     return newElement
   }
 
+  createForUse<Name extends SVGTagName>(
+    elementName: Name,
+    id: string
+  ): SkSVG<Name> {
+    this.#isMainSVG()
+
+    const newElement = new SkSVG<Name>(elementName).set({ id })
+
+    const defs = this.#defsCheck()
+    defs.appendChild(newElement.element)
+
+    return newElement
+  }
+
   createPattern(id: string, width: number, height: number) {
     this.#isMainSVG()
 
