@@ -174,5 +174,9 @@
   {
     "id": "vec-recur-polygon",
     "title": "Vec Recur Polygon"
+  },
+  {
+    "id": "mod-add-table-by-color",
+    "title": "Mod Add Table By Color"
   }
 ]
