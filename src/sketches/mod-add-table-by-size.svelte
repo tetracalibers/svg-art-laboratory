@@ -19,7 +19,7 @@
     const canvasSize = 500
 
     // 法とする自然数
-    const mod = 17
+    const mod = 20
 
     // 拡大比率
     const scale = canvasSize / mod
