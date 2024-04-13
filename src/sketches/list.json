@@ -178,5 +178,9 @@
   {
     "id": "mod-add-table-by-color",
     "title": "Mod Add Table By Color"
+  },
+  {
+    "id": "mod-mul-table-by-color",
+    "title": "Mod Mul Table By Color"
   }
 ]
