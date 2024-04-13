@@ -186,5 +186,9 @@
   {
     "id": "mod-mul-table-by-color",
     "title": "Mod Mul Table By Color"
+  },
+  {
+    "id": "mod-mol-table-by-size",
+    "title": "Mod Mol Table By Size"
   }
 ]
